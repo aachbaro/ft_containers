@@ -27,10 +27,10 @@ namespace ft
         
         vector(): _array(nullptr), _capacity(0), _size(0) {}
         explicit vector(size_type n, const value_type& val) {
-            _array = malloc(sizeof(val) * n + 5);
+            _array = new value_type[n * 2];
             for (int i = 0; i != n; i++) { _array[i] = val; }
         }
-        ~vector() { free(_array); }
+        ~vector() { delete [] _array; }
 
         T &operator[](size_type i) { return (_array[i]); }
     };
