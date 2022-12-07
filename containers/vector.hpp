@@ -13,9 +13,13 @@ namespace ft
     {
         public :
 
-        typedef T               value_type;
-        typedef Alloc           alloc_type;
-        typedef unsigned long   size_type;
+        typedef T                                   value_type;
+        typedef Alloc                               allocator_type;
+        typedef allocator_type::reference           reference;
+        typedef allocator_type::const_reference     const_reference;
+        typedef allocator_type::pointer             pointer;
+        typedef allocator_type::const_pointer       const_pointer;
+        typedef unsigned long                       size_type;
 
         private :
 
@@ -33,6 +37,9 @@ namespace ft
         ~vector() { delete [] _array; }
 
         T &operator[](size_type i) { return (_array[i]); }
+
+        /* iterators */
+        
     };
 }
 
